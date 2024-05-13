@@ -15,6 +15,7 @@ function Quiz(props) {
         }
     }, [remainingTime])
     function nextQuestion() {
+        if(remainingTime<=20){
         const radioButtons = document.getElementsByName(`question${currentQuestion}`);
         for (let i = 0; i < radioButtons.length; i++) {
             if (radioButtons[i].checked) {
@@ -30,7 +31,7 @@ function Quiz(props) {
             setCurrentQuestion(currentQuestion + 1)
             setRemainingTime(30)
         }
-    }
+    }}
     return (
         <>
             <div className=' absolute right-[5%] top-[5%]'><p className={`font-bold text-4xl rounded-full w-20 h-20 border-2 justify-center flex items-center ${remainingTime > 20 ? "text-green-400 border-green-400" : 10 > remainingTime ? " text-red-400 border-red-400" : "text-yellow-400 border-yellow-400"} `}>{remainingTime}</p></div>
